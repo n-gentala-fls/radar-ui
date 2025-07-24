@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect} from "react"
 import { Box, Container, Grid, Typography } from "@mui/material"
-
+import { MapContainer, TileLayer, useMap, Marker, Popup } from 'react-leaflet'
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
@@ -33,16 +33,20 @@ const Radar = () => {
                 <Box
                     display="flex"
                     flexDirection="column"
-                    height="300px"
-                    width="400px"
+                    height="400px"
+                    width="600px"
                     justifyContent="center"
                     backgroundColor="#1A1F1F"
                     borderRadius="12px"
                     boxShadow={5}
+                    overflow="hidden"
                 >
-                    <Typography variant="h4" align="center" gutterBottom>
-                        MAP:
-                    </Typography>
+                    <MapContainer center={[33.35283, -111.78903]} zoom={13} scrollWheelZoom={false}>
+                        <TileLayer
+                            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                        />
+                    </MapContainer>
                 </Box>
             </Box>
         </>
