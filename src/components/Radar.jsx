@@ -1,11 +1,11 @@
 import React, { useState, useRef, useEffect} from "react"
-import { Box, Container, Grid, Typography } from "@mui/material"
-import { MapContainer, TileLayer, useMap, Marker, Popup } from 'react-leaflet'
-import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
-import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
+import { Box, Container, Grid, Menu, Typography } from "@mui/material"
+import AppBar from '@mui/material/AppBar'
+import Toolbar from '@mui/material/Toolbar'
+import Button from '@mui/material/Button'
+import IconButton from '@mui/material/IconButton'
+import MenuIcon from '@mui/icons-material/Menu'
+import MapboxExample from './Map'
 
 const Radar = () => {
     return (
@@ -13,7 +13,7 @@ const Radar = () => {
             <AppBar position="static" sx={{ backgroundColor: '#101012', color: 'white' }}>
                 <Toolbar>
                     <IconButton edge="start" aria-label="menu" sx={{ mr: 2, color: "#00FF99" }}>
-                        <MenuIcon />
+                       <MenuIcon />
                     </IconButton>
                     <Typography variant="h6" component="div" sx={{ color: "#00FF99", flexGrow: 1 }}>
                         GEODOME
@@ -41,12 +41,7 @@ const Radar = () => {
                     boxShadow={5}
                     overflow="hidden"
                 >
-                    <MapContainer center={[33.35283, -111.78903]} zoom={13} scrollWheelZoom={false}>
-                        <TileLayer
-                            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                        />
-                    </MapContainer>
+                    <MapboxExample />
                 </Box>
             </Box>
         </>
